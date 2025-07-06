@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Carrinho de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fdf0fb;
+            padding: 30px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #9d4edd;
+        }
+
+        .item-carrinho {
+            background: #fff;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .item-carrinho span {
+            font-size: 1rem;
+        }
+
+        .item-carrinho button {
+            background: #ff70d9;
+            border: none;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .item-carrinho button:hover {
+            opacity: 0.9;
+        }
+
+        .total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .btn-finalizar {
+            display: block;
+            margin: 30px auto 10px;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #9d4edd, #ff70d9);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 12px;
+            color: #9d4edd;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Carrinho de Compras</h1>
+    <div id="itens-carrinho"></div>
+    <p class="total" id="total">Total: R$ 0,00</p>
+
+    <button class="btn-finalizar">Finalizar Pedido</button>
+    <a href="home.html">Voltar ao Cardápio</a>
+
+    <script>
+        const itens = [
+            { nome: "Sorvete - Chocolate", preco: 10.00 },
+            { nome: "Picolé - Morango", preco: 12.00 }
+        ];
+
+        const container = document.getElementById("itens-carrinho");
+        const totalEl = document.getElementById("total");
+
+        function renderCarrinho() {
+            container.innerHTML = "";
+            let total = 0;
+
+            itens.forEach((item, index) => {
+                total += item.preco;
+                const div = document.createElement("div");
+                div.className = "item-carrinho";
+                div.innerHTML = `
+          <span>${item.nome}</span>
+          <span>R$ ${item.preco.toFixed(2)}</span>
+          <button onclick="removerItem(${index})">Remover</button>
+        `;
+                container.appendChild(div);
+            });
+
+            totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+
+        function removerItem(index) {
+            itens.splice(index, 1);
+            renderCarrinho();
+        }
+
+        renderCarrinho();
+    </script>
+</body>
+
+</html>

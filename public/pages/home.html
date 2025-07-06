@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Sorveteria Delícia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset e font */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      background: linear-gradient(to bottom, #fff0fa, #ffe3ff);
+      color: #333;
+    }
+
+    /* Cabeçalho */
+    header {
+      background: linear-gradient(to right, #ff70d9, #9d4edd);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 1rem;
+    }
+
+    /* Container principal */
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px 40px;
+    }
+
+    section+section {
+      margin-top: 40px;
+    }
+
+    h2 {
+      color: #d63384;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    /* Grid de cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Imagem e título */
+    .card figure {
+      margin: 0;
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 160px;
+      transition: transform .3s;
+    }
+
+    .card img:hover {
+      transform: scale(1.05);
+    }
+
+    .card figcaption {
+      padding: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #7b2cbf;
+      text-align: center;
+    }
+
+    /* Preço e tamanho */
+    .info {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      margin: 4px 0 12px;
+    }
+
+    .price {
+      color: #d63384;
+      font-weight: bold;
+    }
+
+    .size {
+      color: #555;
+    }
+
+    /* Descrição */
+    .card p {
+      padding: 0 12px 12px;
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+    }
+
+    /* Botão adicionar */
+    .btn-add {
+      display: block;
+      margin: 0 auto 16px;
+      background: #ffd000;
+      color: #333;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .btn-add:hover {
+      background: #ffbe00;
+    }
+
+    /* Botão WhatsApp */
+    .zap-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25d366;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.8rem;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: opacity .2s;
+    }
+
+    .zap-btn:hover {
+      opacity: .85;
+    }
+
+    .fixed-actions {
+      position: fixed;
+      bottom: 100px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .action-btn {
+      background: #9d4edd;
+      color: white;
+      font-size: 1.6rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: opacity 0.2s;
+    }
+
+    .action-btn:hover {
+      opacity: 0.85;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #666;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🍧 Sorveteria Delícia</h1>
+    <p>Escolha seu favorito e monte seu pedido!</p>
+    <div class="fixed-actions">
+      <a href="enderecos.html" class="action-btn" title="Endereços">
+        📍
+      </a>
+      <a href="carrinho.html" class="action-btn" title="Carrinho">
+        🛒
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Açaí -->
+    <section id="acai">
+      <h2>🥣 Açaí</h2>
+      <div class="cards">
+        <div class="card">
+          <figure>
+            <img src="../assets/img/acai-tradicional.jpeg" alt="Tigela de açaí tradicional" loading="lazy">
+            <figcaption>Açaí Tradicional</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 22,00</span>
+            <span class="size">| 300 ml</span>
+          </div>
+          <p>Com banana, granola e mel. Refrescante e nutritivo.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+        <div class="card">
+          <figure>
+            <img src="../assets/img/acai-leite-ninho.jpeg" alt="Açaí com Leite Ninho e morangos" loading="lazy">
+            <figcaption>Açaí Leite Ninho</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 26,00</span>
+            <span class="size">| 350 ml</span>
+          </div>
+          <p>Com cobertura de Nutella e morangos frescos.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+        <div class="card">
+          <figure>
+            <img src="../assets/img/acai-tropical.jpeg" alt="Açaí Tropical com manga e coco" loading="lazy">
+            <figcaption>Açaí Tropical</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 24,00</span>
+            <span class="size">| 300 ml</span>
+          </div>
+          <p>Com manga, coco ralado e melado.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Casquinhas -->
+    <section id="casquinhas">
+      <h2>🍦 Casquinhas</h2>
+      <div class="cards">
+        <div class="card">
+          <figure>
+            <img src="../assets/img/casquinha-baunilha.jpeg" alt="Casquinha Baunilha Clássica" loading="lazy">
+            <figcaption>Baunilha Clássica</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 10,00</span>
+            <span class="size">| 120 g</span>
+          </div>
+          <p>Casquinha crocante com sorvete de baunilha cremosa.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+        <div class="card">
+          <figure>
+            <img src="../assets/img/casquinha-mista.jpeg" alt="Casquinha Mista Chocolate e Baunilha" loading="lazy">
+            <figcaption>Mista Chocolate & Baunilha</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 12,00</span>
+            <span class="size">| 130 g</span>
+          </div>
+          <p>Dois sabores em uma só casquinha.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+        <div class="card">
+          <figure>
+            <img src="../assets/img/casquinha-pacoca.jpeg" alt="Casquinha com Paçoca e Nutella" loading="lazy">
+            <figcaption>Paçoca & Nutella</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 14,00</span>
+            <span class="size">| 140 g</span>
+          </div>
+          <p>Com Nutella e paçoca triturada por cima.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Picolés -->
+    <section id="picoles">
+      <h2>🍡 Picolés</h2>
+      <div class="cards">
+        <div class="card">
+          <figure>
+            <img src="../assets/img/picole-frutas.jpeg" alt="Picolé Frutas Vermelhas" loading="lazy">
+            <figcaption>Frutas Vermelhas</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 8,00</span>
+            <span class="size">| 90 g</span>
+          </div>
+          <p>Feito com frutas naturais, sem lactose.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+        <div class="card">
+          <figure>
+            <img src="../assets/img/picole-chocolate.jpeg" alt="Picolé Chocolate com Brigadeiro" loading="lazy">
+            <figcaption>Chocolate & Brigadeiro</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 9,50</span>
+            <span class="size">| 95 g</span>
+          </div>
+          <p>Casquinha de chocolate com recheio cremoso.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+        <div class="card">
+          <figure>
+            <img src="../assets/img/picole-coco.jpeg" alt="Picolé Coco com Leite Condensado" loading="lazy">
+            <figcaption>Coco & Leite Condensado</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 9,00</span>
+            <span class="size">| 90 g</span>
+          </div>
+          <p>Tradicional e super cremoso.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Milk-Shakes -->
+    <section id="milkshakes">
+      <h2>🥤 Milk-Shakes</h2>
+      <div class="cards">
+        <div class="card">
+          <figure>
+            <img src="../assets/img/milk-chocolate.jpeg" alt="Milk-Shake Chocolate Belga" loading="lazy">
+            <figcaption>Chocolate Belga</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 18,00</span>
+            <span class="size">| 400 ml</span>
+          </div>
+          <p>Com chantilly e raspas de chocolate.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+        <div class="card">
+          <figure>
+            <img src="../assets/img/milk-oreo.jpeg" alt="Milk-Shake Oreo com Baunilha" loading="lazy">
+            <figcaption>Oreo & Baunilha</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 19,00</span>
+            <span class="size">| 420 ml</span>
+          </div>
+          <p>Batido com biscoitos e finalizado com farelo crocante.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+        <div class="card">
+          <figure>
+            <img src="../assets/img/milk-doce-de-leite.jpeg" alt="Milk-Shake Doce de Leite com Paçoca" loading="lazy">
+            <figcaption>Doce de Leite & Paçoca</figcaption>
+          </figure>
+          <div class="info">
+            <span class="price">R$ 20,00</span>
+            <span class="size">| 420 ml</span>
+          </div>
+          <p>Super brasileiro! Aveludado e irresistível.</p>
+          <button class="btn-add">➕ Adicionar</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    Pagamento via Pix, crédito e débito 💳
+  </footer>
+
+  <a href="https://wa.me/seu-numero-aqui" class="zap-btn" title="Fale conosco no WhatsApp">💬</a>
+</body>
+
+</html>

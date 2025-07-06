@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Conecte-se</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #fff0fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            padding: 32px 24px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #d63384;
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 0;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #9d4edd;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+        }
+
+        .tab-btn.active {
+            border-bottom: 3px solid #9d4edd;
+            color: #7b2cbf;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 18px;
+            background: #f4a8ff;
+            color: #000;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            border: 1px solid #9d4edd;
+            outline: none;
+            box-shadow: 0 0 5px rgba(157, 78, 221, 0.3);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #7b2cbf, #ff70d9);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            background: #eee;
+            color: #7b2cbf;
+            border-radius: 20px;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background: #ddd;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        fieldset {
+            border: none;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        legend {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #7b2cbf;
+        }
+
+        label input[type="radio"] {
+            margin-right: 6px;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 10px 2px;
+            }
+
+            .tab-btn {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+
+    <script>
+        function showTab(tab) {
+            document.getElementById('login-form').classList.toggle('hidden', tab !== 'login');
+            document.getElementById('cadastro-form').classList.toggle('hidden', tab !== 'cadastro');
+            document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+            document.getElementById('tab-cadastro').classList.toggle('active', tab === 'cadastro');
+        }
+
+        window.onload = function () {
+            showTab('login');
+
+            document.getElementById('cadastro-form').onsubmit = function (e) {
+                const senha = document.getElementById('cad-senha').value;
+                const confirmar = document.getElementById('cad-confirmar').value;
+                if (senha !== confirmar) {
+                    alert("As senhas não coincidem!");
+                    e.preventDefault();
+                }
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2> Acesse sua conta na Sorveteria Delícia</h2>
+
+        <div class="tabs">
+            <button id="tab-login" class="tab-btn active" onclick="showTab('login')">Login</button>
+            <button id="tab-cadastro" class="tab-btn" onclick="showTab('cadastro')">Cadastro</button>
+        </div>
+
+        <form id="login-form">
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" required>
+            </div>
+            <div class="form-group">
+                <label for="login-senha">Senha</label>
+                <input type="password" id="login-senha" required>
+            </div>
+            <button class="btn" type="submit">Entrar</button>
+        </form>
+
+        <form id="cadastro-form" class="hidden">
+            <div class="form-group">
+                <label for="cad-nome">Nome</label>
+                <input type="text" id="cad-nome" required>
+            </div>
+            <div class="form-group">
+                <label for="cad-email">Email</label>
+                <input type="email" id="cad-email" required>
+            </div>
+            <div class="form-group">
+                <label for="cad-senha">Senha</label>
+                <input type="password" id="cad-senha" required>
+            </div>
+            <div class="form-group">
+                <label for="cad-confirmar">Confirmar Senha</label>
+                <input type="password" id="cad-confirmar" required>
+            </div>
+            <button class="btn" type="submit">Cadastrar</button>
+        </form>
+
+        <a href="../index.html" class="back-link">Voltar ao inicio</a>
+    </div>
+</body>
+
+</html>

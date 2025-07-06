@@ -1,0 +1,130 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #fff0fa;
+  min-height: 100vh;
+  color: #333;
+}
+
+.background {
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container principal para login/cadastro */
+.form-container {
+  display: flex;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Lado da imagem (opcional) */
+.image-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4a8ff;
+}
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 300px;
+  border-radius: 0 20px 20px 0;
+}
+
+/* Lado do formulário */
+.form-box {
+  background: #ff8dfd;
+  padding: 40px;
+  flex: 1;
+  min-width: 260px;
+}
+
+.form-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #7b2cbf;
+}
+
+.form-box label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-box input,
+.form-box select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  background-color: #f4a8ff;
+  color: #000;
+  font-size: 14px;
+}
+
+.form-box input::placeholder {
+  color: #5c005c;
+}
+
+.forgot {
+  display: block;
+  margin-bottom: 20px;
+  text-align: right;
+  color: #4a004a;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #7b2cbf, #9d4edd);
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-box button:hover {
+  opacity: 0.9;
+}
+.form-box button:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 700px) {
+  .form-container {
+    flex-direction: column;
+    max-width: 95vw;
+  }
+  .image-box img {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+  }
+  .image-box {
+    padding: 10px 0;
+  }
+  .form-box {
+    padding: 20px;
+  }
+}

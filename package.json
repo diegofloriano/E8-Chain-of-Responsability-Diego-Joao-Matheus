@@ -1,0 +1,18 @@
+{
+  "name": "-e8-chain-of-responsability-main",
+  "version": "1.0.0",
+  "description": "Sabendo que o trabalho lida com objetos transacionais que encapsulam as transação frontend-backend, elaborar um Adapter para Adaptar a entrada JSON em XML no sistema. fazendo com que o backend interprete o XML e realize as operações.",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3"
+  }
+}

@@ -1,0 +1,93 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #333;
+}
+
+header {
+  background-color: #9d4edd;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+nav .btn {
+  margin-left: 10px;
+}
+
+.presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 30px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.text-content {
+  flex: 1;
+  max-width: 500px;
+}
+
+.text-content h2 {
+  font-size: 2rem;
+  color: #7b2cbf;
+  margin-bottom: 15px;
+}
+
+.text-content p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 24px;
+  background: #9d4edd;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #7b2cbf;
+}
+
+.btn-secondary {
+  background: #ff8dfd;
+  color: #000;
+}
+
+.btn-secondary:hover {
+  background: #f062d9;
+}
+
+.image-content img {
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
